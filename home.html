@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Genty Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Genty:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="sunglasses.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>Blend and Trend</title>
+    
+    <style>
+      /* Styling for profile section */
+      .profile-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+      }
+      /* Updated profile card styles to ensure buttons are aligned */
+       .profile-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Ensures content and button are spaced */
+        width: 800px;
+        height: 450px;
+        margin-bottom: 0px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: powderblue;
+        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+        padding: 50px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+       }
+
+      .profile-card.big {
+        transform: scale(1.1); /* Enlarges the selected profile */
+        box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow when enlarged */
+        z-index: 1;
+      }
+
+      .profile-pic-wrapper {
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .profile-pic-wrapper img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        border: 5px solid bisque (210, 218, 234, 0.47);
+        object-fit: cover;
+      }
+
+      .profile-card h5 {
+        margin-top: 50px;
+      }
+
+      /* Style for profile links */
+      .profile-card a {
+        background-color: gray; /* Updated background color to gray */
+        color: white; /* Text color set to white for contrast */
+        padding: 2px 60px; /* Smaller padding for the link background */
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+      }
+
+      .profile-card a:hover {
+        background-color: darkgray; /* Darker shade of gray on hover */
+      }
+
+      /* Style for buttons */
+      .profile-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .profile-buttons button {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 10px;
+        background-color: rgb(120, 90, 15);
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .profile-buttons button.active {
+        background-color: black; /* Darker color for active button */
+      }
+
+      /* Enable smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Font style for "Blend and Trend" using Genty font */
+      .navbar-brand {
+        font-family: 'Genty';
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <section class="header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-sunglasses" viewBox="0 0 16 16">
+              <path d="M3 5a2 2 0 0 0-2 2v.5H.5a.5.5 0 0 0 0 1H1V9a2 2 0 0 0 2 2h1a3 3 0 0 0 3-3 1 1 0 1 1 2 0 3 3 0 0 0 3 3h1a2 2 0 0 0 2-2v-.5h.5a.5.5 0 0 0 0-1H15V7a2 2 0 0 0-2-2h-2a2 2 0 0 0-1.888 1.338A2 2 0 0 0 8 6a2 2 0 0 0-1.112.338A2 2 0 0 0 5 5zm0 1h.941c.264 0 .348.356.112.474l-.457.228a2 2 0 0 0-.894.894l-.228.457C2.356 8.289 2 8.205 2 7.94V7a1 1 0 0 1 1-1"/>
+            </svg>
+            <a class="navbar-brand" href="#">Blend and Trend</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#profiles">Home</a> <!-- Updated to scroll to profiles -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#profiles">About Us</a> <!-- Updated "About Us" Link -->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="middle">
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Display profiles -->
+    <section id="profiles" class="py-5 bg-light">
+      <div class="container">
+        <div class="profile-container">
+          <!-- Profile 1 -->
+          <div class="profile-card" id="profile1">
+            <div class="profile-pic-wrapper">
+              <img src="profile1.png" alt="Profile 1">
+            </div>
+            <h6>Christelle Agarao</h6>
+            <p>Owner of Beauty Matter Olshoppe, offering 
+              high-quality, and affordable products
+              designed to empower confidence
+              and elevate personal care.</p>
+              <a href="file:///C:/Users/Erica/Desktop/BeautyMatters/index.html" target="_blank" class="btn btn-primary">Visit</a>
+            </div>
+
+          <!-- Profile 2 -->
+          <div class="profile-card" id="profile2">
+            <div class="profile-pic-wrapper">
+              <img src="profile2.png" alt="Profile 2">
+            </div>
+            <h6>Maezo Quirante</h6>
+            <p>She is a cheerful, soft-hearted
+               person and  who runs the business 
+               with warmth and a positive attitude,
+                despite sometimes feeling stressed inside.</p>
+            <a href="https://alexag-jpg.github.io/Maezo-website/" target="_blank" class="btn btn-primary">Visit</a>
+          </div>
+
+          <!-- Profile 3 -->
+          <div class="profile-card" id="profile3">
+            <div class="profile-pic-wrapper">
+              <img src="profile3.png" alt="Profile 3">
+            </div>
+            <h6>Alexa Gonzales</h6>
+            <p> She is the dedicated owner of Pause snd Sip, focused on creating a friendly 
+              atmosphere for guests to take a break from their daily routines and enjoy 
+              exceptional tea moments.</p>
+              <a href=" https://alexag-jpg.github.io/Alexa-website/" target="_blank" class="btn btn-primary">Visit</a>
+            </div>
+
+          <!-- Profile 4 -->
+          <div class="profile-card" id="profile4">
+            <div class="profile-pic-wrapper">
+              <img src="profile4.png" alt="Profile 4">
+            </div>
+            <h6>Peter Jhon Paul Porbosa</h6>
+            <p>He is a visionary and passionate owner, dedicated to creating a haven of relaxation for guests seeking to escape and reconnect with nature's beauty in Talisay Beach</p>
+            <a href="file:///C:/Users/User/Desktop/peter/index.html" target="_blank" class="btn btn-primary">Visit</a>
+            </div>
+
+          <!-- Profile 5 -->
+          <div class="profile-card" id="profile5">
+            <div class="profile-pic-wrapper">
+              <img src="profile5.png" alt="Profile 5">
+            </div>
+            <h6>Erica Mae Delante</h6>
+            <p>An enthusiastic marketing strategist, Erica excels at blending traditional and digital marketing techniques.</p>
+            <a href="https://alexag-jpg.github.io/Erica-Website/" target="_blank" class="btn btn-primary">Visit</a>
+            </div>
+        </div>
+
+        <!-- Buttons to control which profile enlarges -->
+        <div class="profile-buttons">
+          <button id="btn1" class="active"></button>
+          <button id="btn2"></button>
+          <button id="btn3"></button>
+          <button id="btn4"></button>
+          <button id="btn5"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      // Get references to the buttons and profiles
+      const btn1 = document.getElementById('btn1');
+      const btn2 = document.getElementById('btn2');
+      const btn3 = document.getElementById('btn3');
+      const btn4 = document.getElementById('btn4');
+      const btn5 = document.getElementById('btn5');
+
+      const profile1 = document.getElementById('profile1');
+      const profile2 = document.getElementById('profile2');
+      const profile3 = document.getElementById('profile3');
+      const profile4 = document.getElementById('profile4');
+      const profile5 = document.getElementById('profile5');
+
+      // Function to reset all profiles and buttons
+      function resetProfiles() {
+        profile1.classList.remove('big');
+        profile2.classList.remove('big');
+        profile3.classList.remove('big');
+        profile4.classList.remove('big');
+        profile5.classList.remove('big');
+
+        btn1.classList.remove('active');
+        btn2.classList.remove('active');
+        btn3.classList.remove('active');
+        btn4.classList.remove('active');
+        btn5.classList.remove('active');
+      }
+
+      // Event listeners for the buttons
+      btn1.addEventListener('click', function() {
+        resetProfiles();
+        profile1.classList.add('big');
+        btn1.classList.add('active');
+      });
+
+      btn2.addEventListener('click', function() {
+        resetProfiles();
+        profile2.classList.add('big');
+        btn2.classList.add('active');
+      });
+
+      btn3.addEventListener('click', function() {
+        resetProfiles();
+        profile3.classList.add('big');
+        btn3.classList.add('active');
+      });
+
+      btn4.addEventListener('click', function() {
+        resetProfiles();
+        profile4.classList.add('big');
+        btn4.classList.add('active');
+      });
+
+      btn5.addEventListener('click', function() {
+        resetProfiles();
+        profile5.classList.add('big');
+        btn5.classList.add('active');
+      });
+    </script>
+
+    <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+      <p>&copy; 2024 | Designed by Powerpuff Girls</p>
+  </div>
+</footer>
+
+  </body>
+</html>
